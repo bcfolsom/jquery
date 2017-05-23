@@ -11,7 +11,9 @@
     Make it hide the section header the first time the section header is clicked, show it when it is clicked again.
     */
     $(document).ready(function () {
-      // Write code here
+      $('#section-header').click(function () {
+        $('#section').toggle()
+      });
     });
     </script>
 

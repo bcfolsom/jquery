@@ -13,10 +13,18 @@
     0. Make it so that after entering the task description, in the text field and clicking the "Add Task" button, a new task appears inside the element with the id todo-list.
     1. the ability to remove tasks (add an x button)
     2. the ability to check off tasks - strikes them out wo removing (add a checkbox)
-    3. the ability to delete a task
-    4. the ability to edit an existing task
+    3. the ability to edit an existing task
 
     */
+    $(document).ready(function () {
+      $('#add-button').click(function () {
+        $('#todo-list').append('<li>' + '<input id="checkbox" type="checkbox" name="checkbox">' + $('#description').val() + '<button id="rem-button" type="button" name="button">X</button>' + '</li>')
+      })
+    });
+        $(document).on("click", "#rem-button", (function() {
+          $(this).parent('li').remove()
+
+        }));
     </script>
     <style>
     #wrapper {
@@ -34,7 +42,7 @@
       <input id="description" type="text" name="description">
       <button id="add-button">Add Task</button>
       <ul id="todo-list">
-        <li>Feed the cat</li>
+        <li><input id="checkbox" type="checkbox" name="checkbox"> Feed the cat <button id="rem-button" type="button" name="button">X</button></li>
       </ul>
     </div>
   </body>
