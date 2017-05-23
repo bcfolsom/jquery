@@ -18,13 +18,15 @@
     */
     $(document).ready(function () {
       $('#add-button').click(function () {
-        $('#todo-list').append('<li>' + '<input id="checkbox" type="checkbox" name="checkbox">' + $('#description').val() + '<button id="rem-button" type="button" name="button">X</button>' + '</li>')
+        $('#todo-list').append('<li>' + '<input id="checkbox" type="checkbox" name="checkbox">' + $('#description').val() + '<button id="remove-button" type="button" name="button">X</button>' + '</li>')
       })
     });
-        $(document).on("click", "#rem-button", (function() {
-          $(this).parent('li').remove()
-
-        }));
+      $(document).on("click", "#checkbox", function() {
+        $(this).parent('li').css("text-decoration", "line-through");
+      });
+      $(document).on("click", "#remove-button", function() {
+        $(this).parent('li').remove();
+      });
     </script>
     <style>
     #wrapper {
@@ -42,8 +44,10 @@
       <input id="description" type="text" name="description">
       <button id="add-button">Add Task</button>
       <ul id="todo-list">
-        <li><input id="checkbox" type="checkbox" name="checkbox"> Feed the cat <button id="rem-button" type="button" name="button">X</button></li>
+        <li><input id="checkbox" type="checkbox" name="checkbox"> Feed the cat <button id="remove-button" type="button" name="button">X</button></li>
       </ul>
     </div>
   </body>
 </html>
+
+<!-- remove button - https://stackoverflow.com/questions/16448042/how-do-i-remove-element-using-click-and-remove-in-jquery -->
